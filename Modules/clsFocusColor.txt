@@ -1,0 +1,28 @@
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private WithEvents mTb As Access.TextBox
+Attribute mTb.VB_VarHelpID = -1
+
+Private mNormalColor As Long
+Private mFocusColor As Long
+
+Public Sub Init(ByVal txt As Access.TextBox)
+    Set mTb = txt
+    mNormalColor = vbWhite
+    mFocusColor = vbYellow
+End Sub
+
+Private Sub mTb_GotFocus()
+    Stop
+    mTb.BackColor = mFocusColor
+End Sub
+
+Private Sub mTb_LostFocus()
+    Stop
+    mTb.BackColor = mNormalColor
+End Sub
