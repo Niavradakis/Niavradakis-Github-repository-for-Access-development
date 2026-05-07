@@ -191,7 +191,7 @@ Private Function BuildIndexesDDL(ByVal t As DAO.TableDef) As String
     Dim idx As DAO.Index
     Dim col As DAO.Field
     Dim lines As Collection: Set lines = New Collection
-
+  Debug.Print t.Name
     For Each idx In t.Indexes
         ' Skip PK (emitted in CREATE TABLE) and FK pseudo-indexes
         If Not idx.Primary And Not idx.Foreign Then
